@@ -1,0 +1,825 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\date{}
+
+\begin{document}
+
+\textbf{Phase Transformations and Hardenability of Steel}
+
+Ian Wise, EMSE 330
+
+\textbf{Abstract}
+
+Steel is a universally-recognized structural material made via adding
+small concentrations of carbon to iron. Carbon interstitially combines
+with the iron to form a strong solid solution that exhibits good
+mechanical properties, including hardness, for many engineering
+applications. Additional transition elements can be added to the iron as
+well to produce stronger steels with good hardenability, or the ability
+to form strong Fe-C phases upon quenching. This experiment observes the
+differences in microstructure and hardness among two plain-carbon and
+two alloy steels with different heat treatment methods. Optical
+microscopy was used to examine the microstructure, and hardness test
+were conducted. Larger bars of each steel were subjected to a Jominy
+test followed by hardness testing to compare the hardenability of the
+steels.
+
+\textbf{Introduction}
+
+\includegraphics[width=3in,height=2.425in]{media/image1.png} As one of
+the most commonplace structural materials, steel and steel alloys remain
+integral to a significant majority of modern societies. Therefore, it is
+necessary to understand the properties of steel and the effects of heat
+and alloying elements on those properties in order to efficiently
+utilize steel in modern applications. Many mechanical properties of
+steel are directly connected to the microstructure of the material,
+which can change as a function of heat treatment temperature and as new
+elements are added to the iron matrix. The most important of these
+elements, carbon, is widely understood in terms of its interactions with
+iron, as Figure 1 (the Fe-C phase diagram) displays.
+
+\includegraphics[width=2.25736in,height=3.24965in]{media/image2.png}For
+the purposes of this experiment, we will consider the portion of Figure
+1 with a C-content of below 0.76wt\%. Steels of these compositions are
+known as hypoeutectoid steels, as their carbon compositions lie below
+the eutectoid composition of 0.76wt\% C. All samples in this experiment
+are hypoeutectoid steels. Below the eutectoid temperature of 727°C, the
+austenite will transform into two distinct phases: a proeutectoid
+ferrite (α) matrix, which is soft and ductile, and a pearlite phase.
+Pearlite consists of alternating phases of ferrite and cementite
+(Fe\textsubscript{3}C), a brittle and hard iron-carbon compound, in a
+lamella formation. The lamellae structure creates the shortest path
+through which carbon can diffuse from the ferrite matrix and form
+cementite layers. Figure 2 illustrates a typical cooling sequence for a
+hypoeutectoid steel, along with an actual photomicrograph depicting the
+lamellar grain structure of pearlite.
+
+The Fe-C phase diagram considers only continuous equilibrium cooling, in
+which enough time is given for complete diffusion. In realistic
+scenarios, most steels undergo non-equilibrium cooling. Cooling
+generally follows an exponential decline due to the lowering discrepancy
+in energy between the material and its surroundings equating to less of
+a driving force towards heat transfer. The cooling behavior of materials
+can be modeled using the Johnson, Mehl, Avrami, Kormogorov (JMAK)
+equation:
+
+\[f = 1 - e^{- kt^{n}}\]
+
+where t is time, and n and k are time-independent constants.
+
+Non-equilibrium cooling yields both a shift in the phase transformation
+temperatures (indicated as red lines separating phases in Figures 1 and
+2) and the existence of non-equilibrium phases at room temperature. In
+an engineering setting, non-equilibrium cooling in utilized to control
+the microstructure of the material and its associated properties.
+
+Isothermal time-temperature transformation (TTT) diagrams illustrate the
+transformation of a material from one phase to another when held at a
+certain temperature. Solid curves generally correlate to the beginning
+and end of a phase transformation, and dashed lines in-between
+correspond to 50\% transformation. TTT diagrams also vary depending on
+the composition of the material.
+
+\includegraphics[width=2.925in,height=3.17479in]{media/image3.png}
+\includegraphics[width=2.95329in,height=3.21864in]{media/image4.png}
+
+\emph{Figure 3: Time-temperature transformation (TTT) diagrams for a
+typical hypoeutectoid steel of a) plain-carbon and b) alloyed
+composition {[}1{]}}
+
+For steels and steel alloys, TTT diagrams indicate a number of phases
+which can form beyond those given from an equilibrium phase diagram. Of
+these phases, three are of note to this experiment:
+
+\begin{itemize}
+\item
+  Bainite is an analog of pearlite that forms at lower temperatures, or
+  below the pearlite ``nose'' as seen in Figure 3. This mixture of
+  ferrite and cementite is different in that the cementite forms a more
+  needle-like, elongated shape in the ferrite matrix. Bainite is
+  generally harder than pearlite and has good ductility. This phase can
+  also not be directly transformed into pearlite via a higher
+  temperature.
+\item
+  High carbon diffusion rates at temperatures just below the eutectoid
+  temperature result in the cementite forming spheres in the ferrite
+  matrix to reduce the surface energy between the two phases; this
+  configuration is known as spheroidite. Given that dislocations can
+  easily move through the ferrite matrix, this microstructure is very
+  soft and weak.
+\item
+  If a steel is quenched, diffusion is not able to occur, and the carbon
+  that slips out of solid solution will form interstitial impurities in
+  the crystal structure of the iron. This distorts the crystal lattice
+  from face-centered cubic to body-centered tetragonal and forms
+  martensite, a supersaturated solid solution which resembles plates or
+  needle-like shapes.
+\end{itemize}
+
+Martensite is very strong, but often too brittle for engineering
+applications. Thus, martensite will often be tempered at elevated
+temperatures well below the eutectoid temperature. Given that martensite
+is a non-equilibrium phase, carbon will quickly diffuse into small
+spheres in the material. This allows the steel to maintain its high
+hardness while increasing its toughness and ductility. Figure 4
+illustrates typical microstructures for the three non-equilibrium phases
+discussed above.
+
+\includegraphics[width=1.59278in,height=2.24278in]{media/image5.png}
+\includegraphics[width=1.81503in,height=2.22888in]{media/image6.png}
+\includegraphics[width=1.81in,height=2.24in]{media/image7.png}
+
+\emph{Figure 4: Typical non-equilibrium microstructures of hypoeutectoid
+carbon steels: a) bainite, b) spheroidite, and c) martensite {[}1{]}}
+
+Continuous-cooling transformation (CCT) diagrams are also used to
+predict the microstructure of a material. These diagrams tend to be more
+realistic than TTT diagrams, as they shift the required time of a
+reaction forward as a function of the cooling rate. For steels, CCT
+diagrams are significant in that they often show that for low-carbon
+(\textless{}0.25wt\%C) steels, martensite may not form due to its
+required cooling rate being impractically high. Figure 5 shows typical
+CCT diagrams for hypoeutectoid steels.
+
+\includegraphics[width=2.87141in,height=3.27361in]{media/image8.png}
+\includegraphics[width=2.92in,height=3.26in]{media/image9.png}
+
+\emph{Figure 5: Continuous cooling transformation (CCT) diagrams for a
+typical hypoeutectoid steel of a) plain-carbon and b) alloyed
+composition {[}1{]}}
+
+For alloyed steels, the addition of elements shifts the TTT curve to the
+right, which increases the hardenability of the steel, or its ability to
+form martensite in the steel interior. To measure hardenability, a
+Jominy end-quench test can be conducted. One end of a steel bar is
+quenched, and after cooling the hardness is measured horizontally along
+the bar's surface. A steel with high hardenability will display higher
+hardness further away from the quenched end, indicating a more complete
+martensitic transformation.
+
+\textbf{Materials and Methods}
+
+Four steel compositions were selected for testing. The chemical
+compositions of these samples are listed in Table 1:
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+\textbf{Label} & \textbf{Designation} & \textbf{C (wt\%)} & \textbf{Cr
+(wt\%)} & \textbf{Mo (wt\%)} & \textbf{Ni (wt\%)}\tabularnewline
+\midrule
+\endhead
+A & 1018 & 0.18 & 0 & 0 & 0\tabularnewline
+B & 1045 & 0.45 & 0 & 0 & 0\tabularnewline
+C & 4140 & 0.40 & 0.80-1.10 & 0.15-0.25 & 0\tabularnewline
+D & 4340 & 0.40 & 0.40-0.90 & 0.20-0.30 & 1.65-2.00\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Table 1: Chemical compositions of the four steels tested}
+
+Of each composition, 8 cylindrical samples of 1cm in diameter and 1cm in
+height were received, as was 1 Jominy test bar of approximately 10cm in
+length.
+
+The 8 small samples were heated to 900°C for 1 hour in a furnace. The
+following lists the subsequent cooling/annealing schedule for each
+sample:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Water quenched.
+\item
+  Water quenched. Heated to 200°C for 1 hour.
+\item
+  Water quenched. Heated to 400°C for 1 hour.
+\item
+  Water quenched. Heated to 700°C for 1 hour.
+\item
+  Water quenched. Heated to 700°C for 24 hours.
+\item
+  Air cooled.
+\item
+  Quenched in a Pb bath (350°C) for 3 hours.
+\item
+  Furnace cooled.
+\end{enumerate}
+
+The Jominy test bars were heated to 900°C for 3 hours in a furnace,
+followed by a quenching on one end of the bar by a continuous stream of
+water, for approximately 10 minutes. The bars were then air cooled to
+room temperature. All samples were ground, polished, and etched for
+optical microscopy according to the following schedule:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  240 grit SiC paper
+\item
+  600 grit SiC paper
+\item
+  800 grit SiC paper
+\item
+  1200 grit SiC paper
+\item
+  1μm diamond polish
+\item
+  0.05μm alumina polish
+\item
+  Nital (5\%) etch
+\end{enumerate}
+
+The smaller samples were polished on one cylindrical face. The Jominy
+bars were polished length-wise on one side to illustrate the change in
+microstructure as a function of distance from the quenched end of the
+bars.
+
+All samples were imaged using the Keyence optical microscope. Following
+microscopy, all samples were hardness tested using a Rockwell C-scale
+hardness tester. The small samples were tested four times each, and the
+average was taken to be the hardness of the sample. The Jominy bars were
+hardness tested at specific length increments from the quenched end to
+demonstrate the differences in hardenability between each composition.
+
+\textbf{Results and Discussion}
+
+The following figures display TTT and CCT diagrams for the four steel
+compositions tested or those similar:
+
+\includegraphics[width=2.81745in,height=2.75in]{media/image10.png}\includegraphics[width=2.83014in,height=2.75in]{media/image11.png}
+
+\includegraphics[width=3.25in,height=2.61277in]{media/image12.png}\includegraphics[width=2.72083in,height=2.60903in]{media/image13.png}
+
+\emph{Figure 6: TTT diagrams for a) 1018, b) 1045, c) 4140, and d) 4340
+steel {[}2{]}}
+
+\includegraphics[width=2.07994in,height=2.69792in]{media/image14.png}\includegraphics[width=2.02438in,height=2.69182in]{media/image15.png}\includegraphics[width=2.09044in,height=2.74325in]{media/image16.png}
+
+\emph{Figure 7: CCT diagrams for a) low-carbon, b) medium-carbon, and c)
+Ni-Cr-Mo alloyed steel.}
+
+Figure 7A corresponds closely to the 1018 steel samples (group A). The
+small blue-shaded area on the left of the graph indicates that a very
+large cooling rate is required to form martensite without forming
+bainite first, and this may not be feasible for these samples even with
+a water quench. At lower cooling rates, such as during an air or furnace
+cooling, low-carbon steels will ideally form pearlite. Figure 7A also
+shows that hardness for these samples should rank lowest among all
+compositions tested, due to the low carbon concentration promoting the
+growth of soft ferrite.
+
+Figure 7B fits the 1045 steel samples (group B). Again, the figure
+points to a large cooling rate required to form martensite; however, the
+scenario is more realistic given that the martensite area extends
+further to the right. At a lower cooling rate or less intense quench,
+the 1045 samples should ideally directly form bainite, as opposed to the
+1018 samples which, according to Figure 7A, may reach the ferrite area
+first. A very low cooling rate on Figure 7B will also promote the growth
+of pearlite. For hardenability, while at small sample sizes (which
+correspond to higher cooling rates), the hardness of 1045 samples
+increase exponentially, for the purposes of this experiment the hardness
+should be relatively equal to that of the 1018 samples.
+
+Figure 7C corresponds most closely to the 4340 steel samples (group D),
+as it is for a Ni-Cr-Mo alloy; the CCT diagram can be approximated for
+the 4140 steel samples as well (group C). A larger area corresponding to
+martensite points to the fact that rapid quenching should induce a
+martensitic transformation in alloyed steels. Furthermore, the very
+small pearlite area means that a very slow cooling curve is required to
+form pearlite; for most slow-cooling scenarios, bainite is likely to
+form in these samples.
+
+\emph{\textbf{Optical Microscopy}}
+
+All small sample images were taken at 500x magnification. In each table,
+the letter on each figure corresponds to the sample groups and
+compositions indicated in Table 1.
+
+\emph{1. Water quenched.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26559in,height=2.45004in]{media/image17.jpeg} &
+\includegraphics[width=3.26553in,height=2.45in]{media/image18.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26553in,height=2.45in]{media/image19.jpeg} &
+\includegraphics[width=3.26553in,height=2.45in]{media/image20.jpeg}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 8: As-quenched a) 1018, b) 1045, c) 4140, and d) 4340 steel
+samples}
+
+The quenched, unannealed steel samples should ideally have transformed
+into martensite due to the diffusionless nature of such rapid cooling.
+Figure 8A shows fewer dark formations than the other samples, which may
+indicate in incomplete martensitic transformation due to the low-carbon
+composition. Figure 8B, also plain-carbon steel, does not show a
+microstructure typical of martensite; instead, the cementite phase
+appears to have segregated to the grain boundaries of the white ferrite
+matrix. The darker surface color and needle-like grains in Figures 8C
+and 8D, both alloy steels, indicate a martensitic transformation.
+
+\emph{2. Water quenched. Heated to 200°C for 1 hour.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26667in,height=2.45in]{media/image21.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image22.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26667in,height=2.45in]{media/image23.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image24.jpeg}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 9: Quenched a) 1018, b) 1045, c) 4140, and d) 4340 steel
+samples annealed at low temperature}
+
+After annealing at low temperature, our samples should ideally display
+tempered martensite -- a microstructure similar to spheroidite, but with
+precipitated cementite spheres much smaller in size. Figure 9A, the 1018
+steel, appears darker than in the unannealed sample. Upon higher
+magnification, one may be able to see the array of precipitated
+cementite. Conversely, Figure 9C is lighter than in the unannealed 4140
+steel sample, which may indicate a more thorough decomposition of the
+martensite into a stable ferrite/cementite microstructure. However,
+large dark conglomerations are still present, indicating that not all of
+the martensite has been transformed. In Figure 9B, it is difficult to
+assess whether the dark area is high in martensite or the result of
+uneven etching. In Figure 9D, the surface appears underpolished and
+displays pitting corrosion. Areas of high carbon concentration cannot be
+identified.
+
+\emph{3. Water quenched. Heated to 400°C for 1 hour.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26667in,height=2.45in]{media/image25.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image26.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26553in,height=2.44915in]{media/image27.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image28.jpeg}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 10: Quenched a) 1018, b) 1045, c) 4140, and d) 4340 steel
+samples annealed at medium temperature}
+
+At this higher annealing temperature, the microstructure of these
+samples should show a more complete transformation from martensite into
+stable ferrite and cementite. The lighter color of Figure 10A indicates
+that precipitated cementite has distributed more uniformly through the
+sample. Figure 10B also shows a lack of martensite across the sample
+surface. Some small pits can also be seen along the surface. In the 4140
+sample corresponding to Figure 10C, the microstructure shows less carbon
+agglomerations than in the samples annealed at a lower temperature,
+which may indicate a more uniform dispersion of cementite in the ferrite
+matrix. The 4340 sample corresponding to Figure 10D appears too
+unpolished to clearly make out the microstructure; however, one can see
+some darker patches, which could indicate an area of high carbon
+concentration or could indicate surface grime.
+
+\emph{4. Water quenched. Heated to 700°C for 1 hour.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26667in,height=2.45in]{media/image29.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image30.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26553in,height=2.44915in]{media/image31.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image32.jpeg}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 11: Quenched a) 1018, b) 1045, c) 4140, and d) 4340 steel
+samples annealed at high temperature}
+
+Annealing at a temperature close to the eutectoid temperature for 1 hour
+should ideally yield a microstructure resembling bainite in these
+samples according to their TTT diagrams. Figure 11B indicates that this
+transformation has taken place, as one can see the elongated cementite
+framework running through and around the ferrite matrix. In Figures 11A
+and 11D, however, the microstructure cannot be determined due to
+underpolishing/underetching and severe overetching/pitting corrosion,
+respectively. In Figure 11C, pitting corrosion is also present, but
+slight dark areas indicate a possible bainitic microstructure, which may
+be able to be confirmed via higher magnification or more thorough
+polishing.
+
+\emph{5. Water quenched. Heated to 700°C for 24 hours.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26667in,height=2.45in]{media/image33.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image34.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26553in,height=2.44915in]{media/image35.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image36.jpeg}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 12: Quenched a) 1018, b) 1045, c) 4140, and d) 4340 steel
+samples annealed at high temperature for a long time}
+
+A long annealing time at just below the eutectoid temperature should
+yield spheroidite, which can be identified by black dots of cementite
+large enough to be individually identified at this magnification. In
+Figures 12B and 12D, one can make out a sea of these dots within the
+white grains of ferrite, and so these samples show that the
+transformation into spheroidite was successful. In the 1045 sample,
+smaller grains of pearlite have also formed, as indicated by the
+lamellar structure. Small black patches can also be seen in Figure 12A;
+these may indicate formations of spheroidite or formations of pearlite.
+The microstructure is less clear in Figure 12C, although the surface is
+more uniform than in the sample heated for 1 hour at the same
+temperature.
+
+\emph{6. Air cooled.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26667in,height=2.45in]{media/image37.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image38.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26553in,height=2.44915in]{media/image39.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image40.jpeg}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 13: As-air cooled a) 1018, b) 1045, c) 4140, and d) 4340
+steel samples}
+
+Layers of pearlite should ideally form in these samples due to the
+relatively low cooling rate in air. In Figure 13B, the microstructure
+appears quite textured, indicating that pearlite may have formed.
+However, it is difficult to tell if the darker patterning resembles the
+lamellar structure typical of pearlite. Similarly, the microstructure is
+difficult to discern in the other samples. In Figure 13A, beyond the
+corrosion of the surface one can make out many dark blotches, which at
+lower magnifications can be indicative of pearlite formation. Figure 13C
+appears to be overetched, which obscures the microstructure. In Figure
+13D, the darker formations may be due to overetching or may be pearlite
+formations, but it is difficult to discern between the two scenarios.
+
+\emph{7. Quenched in a Pb bath (350°C) for 3 hours.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26667in,height=2.45in]{media/image41.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image42.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26553in,height=2.44915in]{media/image43.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image44.jpeg}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 14: As-lead quenched a) 1018, b) 1045, c) 4140, and d) 4340
+steel samples}
+
+A fast quench from 900°C should form some martensite in these samples,
+and the long time held at this temperature may form a bainite
+microstructure as well. Figure 14D appears too underpolished to discern
+a bainite microstructure, and the needle-like formations indicative of
+martensite area also not present. In Figure 14C, the similarity of the
+color and texture of the surface to samples annealed at high
+temperatures may indicate that martensite did not form. Bainite or
+martensite appears to be present in Figure 14A, as shown by the sea of
+darker formations. Unfortunately, the microstructure in Figure 14B
+cannot be determined, as either the sample is heavily etched or the
+contrast obscures the grain boundaries.
+
+\emph{8. Furnace cooled.}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26667in,height=2.45in]{media/image45.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image46.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26553in,height=2.44915in]{media/image47.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image48.png}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 15: As-furnace cooled a) 1018, b) 1045, c) 4140, and d)
+4340 steel samples}
+
+Having the slowest cooling rate, pearlite should be the dominant phase
+transformation in these samples. Figure 15A has a very dark surface, and
+this may be due to overetching which obscures the true microstructure.
+Pearlite formations can be seen in Figures 15B and 15D, as indicated by
+formations of dark patches speckled with light spots; these speckles at
+a low magnification can indicate a lamellar structure. In Figure 15C,
+two distinct areas have been shown, one light and one dark. This may be
+due to an uneven polish or etch, but one can clearly make out dark
+patches throughout the surface which may indicate pearlite formation.
+
+Jominy bars were imaged near the middle of each bar, to illustrate the
+difference in the extent of martensite formation from the quenched end
+for each composition. Images for samples A and C were taken at 500x
+magnification, and for samples B and D 1000x magnification.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\includegraphics[width=3.26667in,height=2.45in]{media/image49.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image50.jpeg}\tabularnewline
+\midrule
+\endhead
+\includegraphics[width=3.26667in,height=2.45in]{media/image51.jpeg} &
+\includegraphics[width=3.26667in,height=2.45in]{media/image52.jpeg}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{Figure 16: Jominy bars of a) 1018, b) 1045, c) 4140, and d) 4340
+steel samples}
+
+Ideally, the plain-carbon steels should appear lighter due to a lower
+martensite concentration. Figure 16D, an alloy steel, illustrates
+martensitic transformation upon quenching. The needle-like, dark
+concentrations are martensite. Conversely, Figure 16C is much lighter
+and has an orange hue, which may indicate a majority ferrite
+concentration. The lack of martensite may be due to an insufficient
+quenching time. An uneven surface in Figure 16B makes it difficult to
+assess the microstructure. The dark blotches on the surface are not
+typical of martensite, but do indicate cementite agglomeration, which is
+more typical of a medium-carbon steel. In Figure 16A, the lines of dark
+areas may be due to polishing or surface imperfections.
+
+\emph{\textbf{Hardness}}
+
+Figure 17 lists hardness data for each small sample. Ideally, one should
+see the lowest average hardness in the rightmost grouping, as a long
+annealing time should form spheroidite, a soft phase of steel. Likewise,
+the as-quenched samples should form martensite upon quenching, and thus
+should exhibit the highest hardness. Furthermore, the 1018 carbon steel
+should ideally be softer than the other samples due to the lower carbon
+content promoting the growth of soft ferrite.
+
+\includegraphics[width=3.51389in,height=2.5in]{media/image53.png}The
+hardness data appears to agree with ideality. The annealed samples
+generally trend downward in hardness as the temperature and time of
+annealing increases. This trend makes sense due to more decomposition of
+the harder martensite phase with higher temperature annealing and longer
+annealing times. Samples which experienced lower initial cooling rates,
+namely the air-cooled furnace-cooled samples, generally display higher
+hardness than the high-temperature annealed samples, but a lower
+hardness than the low or mid-temperature annealed samples. From this
+data and using the CCT diagrams of these steels, one could draw a
+conclusion as to at how high a temperature quenched steels must be
+tempered to overcome their initial martensite formation, to a point
+where ductility is improved (hardness is lowered) versus via convection
+cooling.
+
+In most sample groups, the medium-carbon steels exhibit a much higher
+hardness than the 1018 (A) group. This trend is expected, as a higher
+carbon concentration equates to a more thorough growth of cementite in
+the steel, which with its brittleness will contribute to a high
+hardness. Some samples were also initially measured using a Rockwell B
+scale and later converted to Rockwell C. However, samples A and B for
+the furnace-cooled group were not able to be converted.
+
+\includegraphics[width=3.86667in,height=2.49028in]{media/image54.png}\emph{\textbf{Hardenability}}
+
+Figure 18 illustrates the results of the Jominy bar hardenability test.
+Unfortunately, hardness measurements for each bar were taken starting
+from the cap of the bars towards the quenched end. Thus, the trend in
+hardness for ach sample is slightly increasing as with each measurement
+a more martensite-rich area is reached. Samples C and D, the alloy
+steels, have a higher hardness than Sample B, the 1045 plain-carbon
+steel. This trend fits well with the CCT diagrams for alloy steel and
+medium-carbon steel in Figure 7. The addition of alloying elements into
+the iron induces precipitation hardening and strengthening mechanisms,
+which contribute to the hardness of the steel. As can be seen in the TTT
+diagrams in Figure 6, the hardenability of alloyed steels should
+increase as well. The shifting of the bainite/pearlite nose to the right
+indicates that more martensite will form in these samples, and so the
+hardness should remain high for a longer portion of the sample. However,
+since the slopes of the data lines in Samples B, C, and D are all
+similar, increased hardenability in the alloyed steels was not observed.
+Sample A was tested under the Rockwell B scale and could not be
+converted to Rockwell C to be compared to the other samples; however,
+given the average hardness measured, if hardness measurements were
+initially taken under a C scale, Sample A should roughly align with
+Sample B. Jominy bar hardness measurements were not able to be
+remeasured due to the existing hardness measurements artificially
+hardening the sample surface by forming compressive stress
+concentrations.
+
+\textbf{Summary}
+
+Overall, the experiments conducted to observe the effects of carbon
+content and annealing temperature and time on steel fit well with
+theory. Samples with lower carbon concentrations displayed less
+martensite formation in the surface microstructure and a lower hardness.
+Furthermore, samples annealed at higher temperatures and for a longer
+period of time exhibited lower hardness and a higher percentage of
+ferrite. The Jominy hardenability test somewhat fit theoretical
+predictions. Higher hardness among the alloyed steel samples as compared
+to plain-carbon steels was expected. However, a higher hardenability
+among the alloyed steels was not observed. Improper hardness
+calculations also prevented accurate comparison of hardenability among
+some samples.
+
+Quench-hardened steels often exhibit very high hardness and strength due
+to martensite formation, but at the cost of ductility required for many
+structural applications. However, there are still uses and research
+conducted for quench-hardened steels. In the automotive and machinery
+industry, quench-hardened carburized steels are often integrated into
+small parts such as gears and drills, which must withstand very high
+stresses and temperatures {[}3{]}. The automotive industry has also
+begun to utilize these steels in the body of vehicles (e.g. door beams,
+bumpers, cross bars) to capitalize on low weight and structural
+performance {[}4{]}. Quench-hardened steels are commonplace in the oil
+\& gas and tool-making industries; quenched alloy steels such as MnCrB,
+NiCrSi, and NiCrMoV have been studied to determine their mechanical
+properties for use in these applications {[}5{]}. Martensitic steels
+have been widely used in drill piping, casing, and tubing in oil
+drilling, and have been researched to improve their resistance to stress
+corrosion from sulfide contamination, which reduces their effectiveness
+{[}6{]}. Finally, both ferrite and martensite exhibit a relatively high
+magnetic permeability; thus, martensitic stainless steels (containing
+Cr) can also find applications for use in solenoid cores and permanent
+magnets {[}7{]}. As more research into the properties of martensite and
+martensitic steels is done, it is likely that the opportunities for
+their use in industry and manufacturing will expand.
+
+\textbf{References}
+
+{[}1{]}. Callister, W. D.; Rethwisch, D. G. \emph{Fundamentals of
+Materials Science and Engineering: An Integrated Approach},
+5\textsuperscript{th} ed. John Wiley \& Sons, Inc., \textbf{2015}.
+
+{[}2{]}. Kappes, M.; Iannuzzi, M.; Bebak, R. B.; Carranza, R. M. Sulfide
+stress cracking of nickel containing low-alloy steels. \emph{Corrosion
+Reviews}, \textbf{2014}, 32, pp. 101-128.
+
+{[}3{]}. Su, S.-r.; Song, R.-b.; Chen, C.; Wang, J.-y.; Zhang, Y.-c. The
+novel process of spheroidizing-critical annealing used to optimize the
+properties of carburized steel and its effect on hardening mechanism of
+quenching and tempering. \emph{Materials Science and Engineering: A},
+\textbf{2019}, 765, 138322.
+
+{[}4{]}. Horvath, C.D. ``Advanced steels for lightweight automotive
+structures.'' \emph{Materials, Design and Manufacturing for Lightweight
+Vehicles}, Woodhead Publishing, \textbf{2010}, pp. 35-78.
+
+{[}5{]}. Abbasi, E.; Luo, Q.; Owens, D. A comparison of microstructure
+and mechanical properties of low-alloy-medium-carbon steels after
+quench-hardening. \emph{Materials Science and Engineering: A},
+\textbf{2018}, 725, pp. 65-75.
+
+{[}6{]}. Wang, Q.; Sun, Y.; Gu, S.; He, Z.; Wang, Q.; Zhang, F. Effect
+of quenching temperature on sulfide stress cracking behavior of
+martensitic steel. \emph{Materials Science and Engineering: A},
+\textbf{2018}, 724, pp. 131-141.
+
+{[}7{]}. ``Magnetic Properties of Ferritic, Martensitic and Duplex
+Stainless Steels.'' \emph{British Stainless Steel Association}, British
+Stainless Steel Association, 2018, www.bssa.org.uk/topics.php?article=3.
+
+\textbf{Appendix}
+
+\emph{A. Small sample hardness measurements}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Composition & Sample \# & Hardness1 & Hardness2 & Hardness3 &
+Hardness4\tabularnewline
+\midrule
+\endhead
+A (1018) & 1 & 21.5 & 23.5 & 19.5 & 20\tabularnewline
+A (1018) & 2 & 11.5 & 14 & 18 & 14\tabularnewline
+A (1018) & 3 & 28.0 & 26 & 32 & 31\tabularnewline
+A (1018) & 4 & 87.0 & 95 & 94 & 94\tabularnewline
+A (1018) & 5 & 86.0 & 91 & 85 & 91\tabularnewline
+A (1018) & 6 & 86 & 88 & 88.0 & 91.0\tabularnewline
+A (1018) & 7 & 89.0 & 93 & 93.5 & 92.5\tabularnewline
+A (1018) & 8 & 76.0 & 77.5 & 78 & 82\tabularnewline
+C (4140) & 9 & 53.0 & 56 & 57 & 59\tabularnewline
+C (4140) & 10 & 44.0 & 47 & 47.5 &\tabularnewline
+C (4140) & 11 & 43.0 & 44 & 43 & 42\tabularnewline
+C (4140) & 12 & 21.0 & 23 & 19 & 20\tabularnewline
+C (4140) & 13 & 9.0 & 5 & 2 & 8\tabularnewline
+C (4140) & 14 & 26.0 & 22 & 24 & 26\tabularnewline
+C (4140) & 15 & 25.0 & 27 & 29 & 26\tabularnewline
+C (4140) & 16 & 89.0 & 91 & 91 & 93\tabularnewline
+B (1045) & 17 & 57.5 & 57 & 54 & 59\tabularnewline
+B (1045) & 18 & 47.0 & 49 & 46 & 49\tabularnewline
+B (1045) & 19 & 40.0 & 38.5 & 40.5 & 43\tabularnewline
+B (1045) & 20 & 12.5 & 12 & 11 & 13\tabularnewline
+B (1045) & 21 & 3.5 & 4 & 3.5 & 4.0\tabularnewline
+B (1045) & 22 & 37.5 & 39 & 41 & 37.5\tabularnewline
+B (1045) & 23 & 43.0 & 51.5 & 50 & 56.5\tabularnewline
+B (1045) & 24 & 0 & 0 & 0.0 & 0.0\tabularnewline
+D (4340) & 25 & 41.0 & 42 & 45 & 46\tabularnewline
+D (4340) & 26 & 43.0 & 45 & 47.5 & 44.5\tabularnewline
+D (4340) & 27 & 41.0 & 42.5 & 40 & 40.5\tabularnewline
+D (4340) & 28 & 19.0 & 21 & 22 & 18\tabularnewline
+D (4340) & 29 & 8.5 & 9.5 & 7.5 & 9.5\tabularnewline
+D (4340) & 30 & 13.5 & 16.5 & 12 & 12\tabularnewline
+D (4340) & 31 & 29.0 & 29.5 & 31 & 25\tabularnewline
+D (4340) & 32 & 11.0 & 13 & 14 & 15.5\tabularnewline
+\bottomrule
+\end{longtable}
+
+\emph{B. Jominy hardenability test results}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\textbf{Distance from end of bar (inches)} & \textbf{A (1018)} &
+\textbf{B (1045)} & \textbf{C (4140)} & \textbf{D (4340)}\tabularnewline
+\midrule
+\endhead
+0.125 & 85 & 2 & 11 & 23\tabularnewline
+0.25 & 83 & 6 & 13 & 25\tabularnewline
+0.375 & 79 & 10 & 15 & 28\tabularnewline
+0.5 & 80 & 8 & 15.5 & 25\tabularnewline
+0.625 & 94 & 7.5 & 19 & 26\tabularnewline
+0.75 & 73 & 9 & 19 & 25\tabularnewline
+0.875 & 97 & 9 & 20 & 25\tabularnewline
+1 & 99 & 10 & 26 & 27\tabularnewline
+1.125 & 72 & 10 & 21 & 23\tabularnewline
+1.25 & 94 & 10 & 24 & 25\tabularnewline
+1.5 & 90 & 9 & 19 & 27\tabularnewline
+1.75 & 92 & 11 & 11 & 25\tabularnewline
+2 & 95 & 11 & 20 & 27\tabularnewline
+2.25 & 95 & 14.5 & 21 & 30.5\tabularnewline
+2.5 & 98 & 14 & 14 & 30\tabularnewline
+2.75 & 93 & 15 & 23 & 33\tabularnewline
+3 & 95 & 16 & 25 & 32\tabularnewline
+3.25 & 91 & & 22 &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{document}
