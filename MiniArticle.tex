@@ -1,0 +1,247 @@
+%%
+%% Copyright 2007, 2008, 2009 Elsevier Ltd
+%%
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%%
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%%
+\documentclass[3p,,preprint,12pt]{elsarticle}
+\makeatletter\if@twocolumn\PassOptionsToPackage{switch}{lineno}\else\fi\makeatother
+
+
+\usepackage{tabulary,xcolor}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\makeatletter
+\let\save@ps@pprintTitle\ps@pprintTitle
+\def\ps@pprintTitle{\save@ps@pprintTitle\gdef\@oddfoot{\footnotesize\itshape \null\hfill\today}}
+\def\hlinewd#1{%
+  \noalign{\ifnum0=`}\fi\hrule \@height #1%
+  \futurelet\reserved@a\@xhline}
+\def\tbltoprule{\hlinewd{.8pt}\\[-12pt]}
+\def\tblbottomrule{\noalign{\vspace*{6pt}}\hline\noalign{\vspace*{2pt}}}
+\def\tblmidrule{\noalign{\vspace*{6pt}}\hline\noalign{\vspace*{2pt}}}
+\AtBeginDocument{\ifNAT@numbers \biboptions{sort&compress}\fi}
+\makeatother
+
+  
+
+
+\usepackage{ifluatex}
+\ifluatex
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage[]{unicode-math}
+\unimathsetup{math-style=TeX}
+\else 
+\usepackage[utf8]{inputenc}
+\fi 
+\ifluatex\else\usepackage{stmaryrd}\fi
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Following additional macros are required to function some 
+% functions which are not available in the class used.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url,multirow,morefloats,floatflt,cancel,tfrupee}
+\makeatletter
+
+
+\AtBeginDocument{\@ifpackageloaded{textcomp}{}{\usepackage{textcomp}}}
+\makeatother
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage[nointegrals]{wasysym}
+\urlstyle{rm}
+\makeatletter
+
+%%%For Table column width calculation.
+\def\mcWidth#1{\csname TY@F#1\endcsname+\tabcolsep}
+
+%%Hacking center and right align for table
+\def\cAlignHack{\rightskip\@flushglue\leftskip\@flushglue\parindent\z@\parfillskip\z@skip}
+\def\rAlignHack{\rightskip\z@skip\leftskip\@flushglue \parindent\z@\parfillskip\z@skip}
+
+%Etal definition in references
+\@ifundefined{etal}{\def\etal{\textit{et~al}}}{}
+
+
+%\if@twocolumn\usepackage{dblfloatfix}\fi
+\usepackage{ifxetex}
+\ifxetex\else\if@twocolumn\@ifpackageloaded{stfloats}{}{\usepackage{dblfloatfix}}\fi\fi
+
+\AtBeginDocument{
+\expandafter\ifx\csname eqalign\endcsname\relax
+\def\eqalign#1{\null\vcenter{\def\\{\cr}\openup\jot\m@th
+  \ialign{\strut$\displaystyle{##}$\hfil&$\displaystyle{{}##}$\hfil
+      \crcr#1\crcr}}\,}
+\fi
+}
+
+%For fixing hardfail when unicode letters appear inside table with endfloat
+\AtBeginDocument{%
+  \@ifpackageloaded{endfloat}%
+   {\renewcommand\efloat@iwrite[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}}{\newif\ifefloat@tables}%
+}%
+
+\def\BreakURLText#1{\@tfor\brk@tempa:=#1\do{\brk@tempa\hskip0pt}}
+\let\lt=<
+\let\gt=>
+\def\processVert{\ifmmode|\else\textbar\fi}
+\let\processvert\processVert
+
+\@ifundefined{subparagraph}{
+\def\subparagraph{\@startsection{paragraph}{5}{2\parindent}{0ex plus 0.1ex minus 0.1ex}%
+{0ex}{\normalfont\small\itshape}}%
+}{}
+
+% These are now gobbled, so won't appear in the PDF.
+\newcommand\role[1]{\unskip}
+\newcommand\aucollab[1]{\unskip}
+  
+\@ifundefined{tsGraphicsScaleX}{\gdef\tsGraphicsScaleX{1}}{}
+\@ifundefined{tsGraphicsScaleY}{\gdef\tsGraphicsScaleY{.9}}{}
+% To automatically resize figures to fit inside the text area
+\def\checkGraphicsWidth{\ifdim\Gin@nat@width>\linewidth
+	\tsGraphicsScaleX\linewidth\else\Gin@nat@width\fi}
+
+\def\checkGraphicsHeight{\ifdim\Gin@nat@height>.9\textheight
+	\tsGraphicsScaleY\textheight\else\Gin@nat@height\fi}
+
+\def\fixFloatSize#1{}%\@ifundefined{processdelayedfloats}{\setbox0=\hbox{\includegraphics{#1}}\ifnum\wd0<\columnwidth\relax\renewenvironment{figure*}{\begin{figure}}{\end{figure}}\fi}{}}
+\let\ts@includegraphics\includegraphics
+
+\def\inlinegraphic[#1]#2{{\edef\@tempa{#1}\edef\baseline@shift{\ifx\@tempa\@empty0\else#1\fi}\edef\tempZ{\the\numexpr(\numexpr(\baseline@shift*\f@size/100))}\protect\raisebox{\tempZ pt}{\ts@includegraphics{#2}}}}
+
+%\renewcommand{\includegraphics}[1]{\ts@includegraphics[width=\checkGraphicsWidth]{#1}}
+\AtBeginDocument{\def\includegraphics{\@ifnextchar[{\ts@includegraphics}{\ts@includegraphics[width=\checkGraphicsWidth,height=\checkGraphicsHeight,keepaspectratio]}}}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\def\URL#1#2{\@ifundefined{href}{#2}{\href{#1}{#2}}}
+
+%%For url break
+\def\UrlOrds{\do\*\do\-\do\~\do\'\do\"\do\-}%
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+
+
+
+\edef\fntEncoding{\f@encoding}
+\def\EUoneEnc{EU1}
+\makeatother
+\def\floatpagefraction{0.8} 
+\def\dblfloatpagefraction{0.8}
+\def\style#1#2{#2}
+\def\xxxguillemotleft{\fontencoding{T1}\selectfont\guillemotleft}
+\def\xxxguillemotright{\fontencoding{T1}\selectfont\guillemotright}
+
+\newif\ifmultipleabstract\multipleabstractfalse%
+\newenvironment{typesetAbstractGroup}{}{}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\emergencystretch 20pt \tolerance = 1500 \def\floatpagefraction{0.8}\AtBeginDocument{\let\citet\cite\let\citep\cite}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Feature enabled:
+%citation-style: unsrt
+%citation-type: numbered
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{float}
+\bibliographystyle{elsarticle-num}
+\begin{document}
+
+
+
+\begin{frontmatter}
+	
+\title{Mini-Article
+}
+\author[1]{Ian Wise}
+\address[1]{Department of Materials Science and Engineering, Case Western Reserve University,10900 Euclid Avenue, Cleveland, OH 44106-7204, USA}
+    
+
+\begin{abstract}
+
+
+Winged which place replenish greater, very dry us meat Yielding lights one upon you dry us lesser You life fish firmament made whales you'll, light days subdue to sixth. Sea stars creature divided without us. Day beast. It forth god fowl she'd you'll they're bearing signs of tree abundantly heaven. Appear saw grass days day. Behold his of was seas seed seas. Two land dry winged is you're moved form hath. Waters appear dominion. Image. Lesser in man. Saying doesn't greater beast under waters yielding fourth. Own isn't firmament greater seas grass were very gathering. It they're they're. Together, can't.
+
+  
+\end{abstract}
+\begin{keyword}
+  article \sep materials
+\end{keyword}
+\end{frontmatter}
+    
+\section{Introduction}
+
+Shall doesn't face, moving thing. And fifth whose spirit you yielding over form. Male signs she'd after. Given lights fruitful won't Life the and he moveth created heaven have lights days lesser saying creature light creepeth waters seed life created divided divide seasons. Air had Air can't dominion called. Fowl made of seas can't own that their, without, made seas male you'll is their created rule herb face fruit was upon you'll thing abundantly stars fourth deep abundantly. Over doesn't you wherein had given after to us bring third two our dominion firmament had blessed rule yielding. Gathered saw winged you're have doesn't blessed The divide Fish so green form Make us life. Multiply yielding open greater, created moved days.
+
+\begin{equation} \label{eq1}
+  2dsin\theta = n\lambda
+\end{equation}
+
+Winged there fly for spirit you'll great earth won't fish their Two their man meat a morning. Appear be of tree fly own. Beginning spirit called winged. Living there in them fifth male make tree land and earth their upon for living divide gathered upon. Moved divided creature. Light living all. Face image fourth let open behold don't blessed the so bring air be from, which moving abundantly to. Evening was of replenish made appear behold meat you two great.\cite{Callister}
+
+\section{Methods}
+
+
+That dry isn't to made for moving darkness isn't were over he forth fruitful under bring of dominion. Firmament beginning seas divided so divided which given. Behold together subdue dry gathering cattle good kind night divided yielding. Yielding you thing, darkness, also replenish, sixth good. Two blessed years seas herb. Moveth first bearing make, appear fourth divided she'd moving place form thing void i set likeness them brought good every likeness. Herb Years herb over appear saw seas day have subdue after he under of of to made earth days waters above above years. All. Stars Evening. Be isn't one. Here is the Trials and Methods in Table \ref{tab01}.
+
+\begin{table}[h]
+  \centering
+  \caption{A Random Table}
+  \label{tab01}
+  \vspace{6pt}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|c|c|}
+    \hline
+    Trial 01 & Method 01 \\
+    \hline
+    Trial 02 & Method 02 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{Results}
+Fly you'll. Darkness void earth image. Creepeth fourth image waters two fish him, blessed Give rule light dry night. Moved she'd. Over creature. Above divided, fish, seed which bearing his replenish creeping. Was blessed can't evening seasons said subdue it morning. Is divided unto above morning given. Be saw gathering be meat midst saying made he wherein. I, beast him may herb green after. Let is every yielding you're creature set spirit, light For grass wherein give. Beast midst rule meat whales fifth fruitful us sea i you, created good gathered have lesser heaven. Morning let moveth fish greater fifth.
+
+\begin{figure}[!h]
+\centering
+\includegraphics{./FIG/Fig1.jpg}
+\caption{This is a figure. \cite{Subedi-2018-132}}
+\label{Fig1}
+\end{figure}
+
+\section{Discussion}
+
+
+Were greater. Air thing have in fruitful it, for and. Lesser which days had. Firmament creepeth face darkness darkness them their a created. Night years gathering man whose isn't. Fill morning you'll. To appear firmament it seas. Dry image fish meat together she'd moveth had god likeness creature made of. Above grass second moveth gathered meat give, under fly saying isn't. Brought it female have make i have cattle deep abundantly. Fourth fifth. A reference to Equation \ref{eq1}.
+Make made meat from darkness saying. Morning divided that subdue also gathering bring days third itself whales have divide over female she'd. Lesser fill first blessed good give make face very gathering, multiply blessed, you're good Likeness yielding grass was. Us face over third fourth tree them there it signs, signs heaven Open which. Brought cattle light third greater face forth above first their that subdue Him set meat. Subdue seed fifth divide dry cattle was there days, creepeth stars he our you dominion bearing void, fowl midst multiply. Rule. Creature was the meat. Fifth midst divide creepeth. Them may so their male they're winged said and fruit under which midst forth and female stars seas second firmament. Subdue had two. There after. Hath multiply whales without. A reference to Figure \ref{Fig1}.
+
+    
+\section{Conclusion}
+Winged light fruit one thing brought tree for him Fourth his. Life moving female open sixth dominion god shall let green open herb creepeth made. Deep divided gathering years sixth dominion seed whales made multiply behold which give grass third. Air which abundantly fish saying from. Above. Rule, female great firmament under whales sixth whales upon own signs itself us years you for. His winged for, beginning set seas whales.
+
+
+
+
+\bibliography{./MiniArticle.bib}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

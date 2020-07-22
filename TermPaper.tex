@@ -1,0 +1,360 @@
+%%% Document Class
+
+\documentclass[11pt]{article}
+
+
+%%% Font Packages Providing Math Support
+
+%\usepackage{FE-FourierX}
+%\usepackage{FE-MinionPro}
+%\usepackage{FE-AGaramondPro}
+%\usepackage{FE-HypatiaSansPro}
+%\usepackage{FE-Lmodern}
+%\usepackage{FE-MathPazo}
+%\usepackage{FE-EuPaHeCo}
+%\usepackage{FE-MathPTMX}
+%\usepackage{FE-CM-Bright}
+%\usepackage{FE-CC-Euler}
+%\usepackage{FE-UtopiaMathDesign}
+%\usepackage[math,condensed]{FE-AntTor}
+%\usepackage[math,light]{FE-AntTor}
+%\usepackage[math,light,condensed]{FE-AntTor}
+%\usepackage{FE-Euler}
+%\usepackage{FE-EulerVM}
+%\usepackage[small,text-hat-accent,euler-digits,icomma,OT1,LY1]{FE-EulerVM}
+%\usepackage{FE-SFMath}
+%\usepackage{FE-Arev}
+%\usepackage{FE-Baskervald-X}
+%\usepackage{FE-Charter-BT}
+%\usepackage{FE-Computer-Concrete}
+%\usepackage{FE-Erewhon}
+%\usepackage{FE-GFSArtemisa}
+%\usepackage{FE-GFSArtemisa-Euler}
+%\usepackage{FE-GFSArtemisa-NeoHellenic}
+%\usepackage{FE-Heuristica}
+%\usepackage[math]{FE-Iwona}
+%\usepackage[math,condensed]{FE-Iwona}
+%\usepackage[math,light]{FE-Iwona}
+%\usepackage[math,light,condensed]{FE-Iwona}
+%\usepackage{FE-Iwona}
+%\usepackage{FE-Kerkis}
+%\usepackage{FE-KP-Sans-Serif}
+%\usepackage[math,condensed]{FE-Kurier}
+%\usepackage[math,light]{FE-Kurier}
+%\usepackage[math,light,condensed]{FE-Kurier}
+%\usepackage{FE-LX}
+%\usepackage{FE-NewPX}
+%\usepackage{FE-NewTX}
+%\usepackage{FE-PX}
+%\usepackage{FE-Stix}
+%\usepackage{FE-TX}
+%\usepackage{FE-URW-Nimbus-Roman}
+%\usepackage{FE-URW-Schoolbook-L}
+%\usepackage{FE-Utopia-Regular-Math-Design}
+
+
+%%% Packages
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfsync}
+\usepackage{FE-Typing-Aids}
+\usepackage{FE-Color}
+\usepackage[draft,author={Frank Ernst}]{pdfcomment}
+%\usepackage[final,author={Frank Ernst}]{pdfcomment}
+\usepackage{todonotes}
+\usepackage{multicol}
+\usepackage{subcaption}
+
+\newcommand{\dmac}{Department of Macromolecular Science and Engineering}
+\title{Approaches to Improve Thermal Conductivity in Polymers: A
+  Review}
+\author{Ian Wise \\
+  \small\dmac \\
+\small{Case Western Reserve University}}
+
+\date{18 October 2018}
+
+\bibliographystyle{elsarticle-num}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Abstract}: Thermally conductive polymers and polymer composites
+open new opportunities in reducing engineering constraints in thermal
+control and electronic systems, especially where insulating properties
+are preferred. The addition of a non-polymeric filler shows a
+significant improvement in the overall thermal conductivity of polymers
+over the unfilled compound. Current research into high thermal
+conducting polymer composites seeks to develop a polymer-based, filled
+compound with a highly efficient thermal conductivity without removing
+the desirable properties of the original polymer. In this article, a
+variety of materials used as fillers in polymer composites are reviewed,
+as well as experimental results and observations of such fillers as part
+of a polymer-based composite material.
+
+\begin{multicols}{2}
+
+\section{Introduction}
+
+Thermal conductivity describes a material's ability to transfer heat.
+Grundler et. al. note the general equation for thermal conductivity:
+
+\begin{equation}
+  \lambda = \emph{a} \cdot \rho \cdot C\textsubscript{p} 
+\end{equation}
+
+where a denotes the thermal diffusivity, \( \rho \) denotes the density, and
+C\textsubscript{p}­ denotes the specific heat capacity.\cite{Grundler-2016}
+However, as noted by Kumlutas et al., when working with polymer composites, it
+becomes more efficient to utilize the geometric mean model for effective
+thermal conductivity k:
+
+\begin{equation}
+k_c=k_f^\varphi k_m^{(1-\varphi)}
+\end{equation}
+
+where c denotes the composite, f denotes the filler, m denotes the
+polymer matrix, and \( \varphi \) denotes the volumetric fraction of filler.\cite{Kumlutas-2003-113}
+This model or one of its many derivatives (e.g. Agari's, Russell's, and
+Maxwell's equations) is often used to contrast experimental data when
+measuring the thermal conductivity of a polymer composite.
+
+The sheer complexity of many polymers significantly reduces their
+thermal conductivity. Varying degrees of crystallinity, a high molecular
+weight, a large number of entropic defects, and other factors contribute
+to a high level of phonon scattering within most commercialized polymers
+and prevents the material from efficiently conducting heat. Research
+into polymer composites containing a hybrid filler show the possibility
+of increasing thermal conductivity from under 1 W/mK to over 100 W/mK;
+however, this is highly dependent upon the material used as filler. In
+this article, metallic, ceramic, and carbon-based fillers for polymer
+composites will be discussed and compared.
+
+\end{multicols}
+
+\begin{figure}[t]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./FIG/Boudenne.pdf}  
+  \caption{Boudenne. \cite{Boudenne-2005-1545}}
+  \label{fig:Boudenne}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./FIG/Zhou.pdf}  
+  \caption{Zhou. \cite{Zhou-2007-1863}}
+  \label{fig:Zhou}
+\end{subfigure}
+\caption{Two figures from the literature.}
+\label{fig:fig}
+\end{figure}
+
+\begin{multicols}{2}
+  
+\section{Metallic Polymer Hybrids}
+
+The use of metallic particles in polymer hybrids appears promising in
+
+terms of raising thermal conductivity. Most metals themselves exhibit
+thermal conductivities of over 100 W/mK. The addition of metals to
+polymers, which have thermal conductivities of mostly less than 1 W/mK,
+would thus improve the effectiveness of the material in that regard.
+Kumlutas et al. examined powdered high-density polyethylene uniformly
+mixed with aluminum powder. Previous theoretical models failed to
+predict how the experimental results grew exponentially once a
+volumetric Al wt\% of 10 was reached, with a maximum reading at over 3.5
+W/mK at an Al wt\% of over 30.\cite{Boudenne-2005-1545}  Boudenne et al. combined
+polypropylene with two sizes of copper particles. Results showed an
+increase in thermal conductivity at medium filler volume percentage,
+with a maximum thermal conductivity of about 2.25 W/mK read at about
+40\% Cu.\cite{Boudenne-2005-1545}
+
+\subsection{Effect of particle size on thermal conductivity}
+
+The thermal conductivity of metallic polymer hybrids is significantly
+determined by the structure of the filler being utilized. Boudenne, et.
+al. experimented with two sizes of Cu particles, the first
+(Cu\textsubscript{a}) measuring on average at about 25 µm in length, and
+the second (Cu\textsubscript{b}) measuring on average at about 250 µm in
+length. Results showed a significant increase in thermal conductivity in
+the sample containing Cu\textsubscript{a} particles.\cite{Boudenne-2005-1545}  This is
+expected as in general, higher thermal conductivities can be obtained
+using smaller filler particles in metallic polymer hybrids due to a more
+even dispersion of conducting particles in the polymer matrix.
+
+\section{Ceramic Polymer Hybrids}
+
+Ceramic-based polymer hybrids offer the opportunity for the use of
+polymers in electronic applications in place of ceramic components such
+as resistors, and where efficient heat dissipation is required. Zhou et
+al. utilized high-density polyethylene (HDPE) reinforced with boron
+nitride. Among common ceramics, boron nitride exhibits both a high
+thermal conductivity of about 400 W/mK in the X-Y plane and temperature
+resistance. Results show a general increase in thermal conductivity with
+increasing filler volume fraction. At the highest tested volume fraction
+of 35\%, the thermal conductivity was found to be 0.87 and 1.02 W/mK for
+the melting and powder mixing methods, respectively.\cite{Zhou-2007-1863}  Lee, et.
+al. mixed HDPE with aluminum nitride, boron nitride, wollastonite, and
+silicon carbide fillers in both single filler and hybrid filler
+configurations. Furthermore, several samples of the AlN and hybrid
+filler composites were treated with a titanate coupling agent. Results
+found a significant increase in thermal conductivity at filler contents
+of between 50 and 75 vol\%. Better results than those of the above study
+were found with the BN sample, which measured a thermal conductivity of
+3.66 W/mK at 50 vol\%. For the single-filler AlN composites, the
+surface-treated sample was found to have the highest measured thermal
+conductivity per filler concentration, measuring at 2.14 W/mK at 60
+vol\%. Of the three hybrid-filler composites tested, the AlN/SiC sample
+measured the highest thermal conductivity. Surface treatment of the
+hybrid-filler samples increased measured thermal conductivity by about
+0.14 W/mK.\cite{Lee-2006-727}
+
+\subsection{Effect of hybrid fillers on thermal conductivity}
+
+Hybrid-filler polymer composites possess the unique challenge of finding
+the most thermally efficient combination of single materials within the
+filler. Lee, et. al. utilized the concept of maximum packing fraction
+within their hybrid fillers in order to synthesize the most conductive
+filler possible. At a specific volume fraction of wollastonite and SiC
+in AlN, a hybrid formed which when mixed with a polymer best facilitated
+heat transfer through the composite. Thus, the ratio of separate
+materials in filler and the ratio of filler and polymer must both be
+considered for hybrid-filler polymer composites. Multiple fillers mixed
+into a polymer can also exhibit a synergistic effect and improve thermal
+conductivity. Lee, et. al. found that a filler mixture of BN and alumina
+fiber slightly improved thermal conductivity over a BN single-filler by
+as much as 0.2 W/mK, despite the low thermal conductivity of alumina
+over BN.
+
+\subsection{Effect of mixing method on thermal conductivity}
+
+Zhou, et. al. found that the mixing method of a polymer composite
+significantly affects thermal conductivity. HDPE-BN samples were
+prepared by both a powder mixing method and melt mixing method. While
+little to no change in thermal conductivity was measured at low filler
+content, at higher concentrations of BN the powder-mixed sample measured
+a higher thermal conductivity, up to 0.2 W/mK more than the melt-mixed
+sample. SEM photography showed that the powder-mixed composite contained
+a more even, networked dispersion of BN within the polymer matrix. This
+leads to a greater surface area of BN around HDPE particles and more
+conductive pathways for heat to flow through the material. Conversely,
+the BN melt-mixed composite formed large globules, which would not be
+conducive to a higher thermal conductivity.
+
+\subsection{Effect of surface treatment on thermal conductivity}
+
+Application of a surface treatment to polymer composites has been shown
+to improve even dispersion of filler within the polymer and increase
+thermal conductivity. Lee, et. al. utilized a titanate coupling agent on
+multiple single and hybrid-filler composites. All treated samples
+displayed an enhanced thermal conductivity of about 0.14 W/mK compared
+to their untreated counterparts.\cite{Lee-2006-727}  Applying a surface treatment
+ideally decreases the amount of phonon deflection at the boundary
+between polymer and filler, which allows for more heat transfer through
+the material.
+
+\section{Carbon-Polymer Hybrids}
+
+Polymers mixed with various forms of elemental carbon have shown a
+significant increase in thermal conductivity in experimental study when
+compared to pure polymers. Grundler et. al. studied a sample of
+polyamide 6 mixed with graphite at concentrations ranging from 10 to 74
+wt\%. Results showed an exponential rise in thermal conductivity with an
+increase in filler content, with a maximum reading at between 25 W/mK
+and 30 W/mK, which represents a dramatic rise in magnitude over pure
+polymers' common thermal conductivities of under 1 W/mK.\cite{Grundler-2016}  Chen
+et. al. utilized an epoxy composite pressed into mats of vapor-grown
+carbon fiber, at filler volume percents ranging from 14 to 56\%. Even at
+relatively low to intermediate filler content, the thermal conductivity
+of the composite was measured to be about 200 to over 600 W/mK in the
+x-axis, and 4-35 W/mK in the y-axis. Both measurements were taken to
+account for samples possessing a 1-dimensional and 2-dimensional carbon
+fiber configuration.\cite{Chen-2002-359}  Wong, et. al. mixed a thermotropic liquid
+crystal polymer with carbon black at low volume fraction, between 0 and
+10\% CB. Thermal conductivity was measured along all three dimensions.
+Along the y-axis, thermal conductivity remained constant, while it
+decreased and increased along the x and z-axes, respectively. Thermal
+conductivity as a function of filler concentration converged along all
+dimensions to about 0.45 W/mK. Carbon black was found to contribute
+significantly less to thermal conductivity of the polymer than
+electrical conductivity, which was also measured.\cite{Wong-2001-1549}
+
+\subsection{Effect of temperature on thermal conductivity}
+
+Temperature has been shown to slightly affect thermal conductivity of
+polymer composites due to thermal expansion of the material. Grundler,
+et. al. mixed graphite with polypropylene and measured thermal
+conductivity as a function of temperature at filler concentrations
+ranging from 10 to 70 wt\%. Results indicated a slight decrease of
+2.48\% in thermal conductivity from 30 degrees to 110 degrees Celsius.\cite{Grundler-2016}  Polypropylene, a thermoplastic, displays significant thermal
+expansion at the measured temperatures, and thus Grundler, et. al.
+theorize that lengthening the distance between polymer molecules impedes
+efficient heat flow through the material.\cite{Grundler-2016}
+
+\subsection{Effect of filler orientation on thermal conductivity}
+
+The spatial orientation of filler within a polymer affects the number of
+networks through which the material can conduct heat. Grundler, et. al.
+found that injection molding of graphite flakes into a polymer to form a
+carbon-based composite created unique areas of uniform flake direction.
+SEM photography indicated a vertical filler alignment in the middle of
+the sample and horizontal alignment on the surface and bottom of the
+sample. Thermal conductivity measurements by region found that thermal
+conductivity vertically through the entirety of the composite is
+significantly higher than that measured vertically or horizontally
+through the core of the sample.\cite{Grundler-2016}  Thus, to maintain uniform
+thermal conductivity, uniform orientation of filler within the polymer
+is of distinct importance. Chen, et. al. noted the probability of
+defects within the VGCF filler. Fibers within the carbon fiber mats may
+be misaligned, leading to an inflated measurement of thermal
+conductivity along the x-axis. This may explain the relatively large
+thermal conductivity of 695 W/mK found along this dimension.\cite{Chen-2002-359}
+
+\section{Conclusion}
+
+Experimental results show the significant possibility of utilizing
+highly conductive fillers such as metals, ceramics, and carbon in
+conjunction with a relatively non-conductive polymer for thermal and
+electronic applications. Furthermore, these materials possess the
+advantage of being thermally conductive and electrically insulating.
+Observations from research into polymer composites indicate that the
+geometry, orientation, and dispersion of filler particles within the
+polymer matrix are most essential in determining the ultimate thermal
+conductivity of the material. Factors such as surface modification,
+temperature, and production method may also be considered. Research must
+continue into improving the thermal conductivity of polymers using the
+above factors. Nevertheless, polymer composites appear promising in
+terms of replacing metallic components for heat controls and
+electronics.
+
+\bibliography{./TermPaper.bib}
+
+\end{multicols}
+
+\begin{table}[h]
+  \centering
+  \caption{\textbf{Random Appendix}}
+  \label{tab:fe}
+  \vspace{6pt}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|r|}
+    \hline
+    One & Two \\
+    \hline
+    Three & Fourteen \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{Final Thoughts}
+
+Using \LaTeX seems to be a much better option when doing simple word processing. It has many robust options for formatting text and text position on the page, and in a much more intuitive way than Microsoft Word. However, with Word I find it easier to quickly insert a table or figure, and it is a lot easier to move these objects around the page, give options for formatting the text around an image or table, and see real-time results. On that note as well, \LaTeX is more akin to coding, where changes are slow and incremental and you need to compile each time. Other options which I think we should look into or see demonstrated are the ability to convert to doc/docx, fixing spacing issues with multicol (can be seen if you compile this code!), and how to insert non-pdf figures.
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
